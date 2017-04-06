@@ -1,0 +1,155 @@
+@import "variables";
+
+.silk-nav
+{
+	.silk-nav--link
+	{
+		display: $nav-link-display;
+		padding: $nav-link-padding;
+		color: $nav-link-color;
+		text-decoration: $nav-link-text-decoration;
+		background: $nav-link-background;
+		
+		&:hover
+		{
+			background: $nav-link-background-hover;
+		}
+	}
+	
+	// JS enabled
+	.js &
+	{
+		overflow: hidden;
+		
+		.silk-nav--items
+		{
+			position: relative;
+			left: 0;
+			list-style: none;
+			padding: $nav-items-padding;
+			margin: $nav-items-margin;
+			border: $nav-items-border;
+			transition: $nav-items-transition;
+			
+			.silk-nav--items
+			{
+				position: absolute;
+				top: 0;
+				left: 100%;
+				width: 100%;
+			}
+
+			&.is-hidden
+			{
+				display: none;
+			}
+		}
+
+		.silk-nav--item
+		{
+			border: $nav-item-border;
+			margin: $nav-item-margin;
+			padding: $nav-item-padding;
+		}
+			
+		.silk-nav--move-forward
+		{
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+		}
+		
+		.silk-nav--move-back
+		{
+			cursor: pointer;
+		}
+	}
+		
+	/*@media (min-width:$nav-expands)
+	{
+		overflow-x: inherit;
+		min-height: 0 !important; // Overrides inline style added by JS
+		border: $nav-items-expanded-border;
+		
+		> .silk-nav--items
+		{
+			position: static;
+			
+			.silk-nav--items
+			{
+				display: none;
+				width: $mav-items-expanded-width;
+				left: 0;
+				top: auto;
+				
+				.silk-nav--items
+				{
+					left: 100%;
+					top: 0;
+					z-index: 50;
+				}
+			}
+			
+			.silk-nav--item
+			{
+				position: relative;
+				float: left;
+				border: 0;
+				
+				.silk-nav--item
+				{
+					float: none;
+				}
+				
+				&:hover
+				{	
+					> .silk-nav--items
+					{
+						display: block;
+					}
+				}
+				
+				&.is-parent
+				{					
+					> .silk-nav--link
+					{
+						&:after
+						{
+							position: relative;
+							display: inline-block;
+							content: "";
+							top: 4px;
+							left: 7px;
+							margin-right: 10px;
+						}
+					}
+					
+					.next
+					{
+						display: none;
+					}					
+				}
+			}
+			
+			> .silk-nav--item
+			{
+				&.is-parent
+				{					
+					> *:first-child
+					{
+						&:after
+						{
+							top: 7px;
+						}
+					}
+				}
+			}
+			
+			.back
+			{
+				display: none;
+			}
+		}
+	}*/
+}

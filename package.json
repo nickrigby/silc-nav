@@ -1,0 +1,11 @@
+{
+  "name": "silk-nav",
+  "version": "0.0.1",
+  "description": "Nav component for the silk framework",
+  "main": "./dist/index.js",
+  "author": "Nick Rigby",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc --outDir ./dist ./src/js/*.ts"
+  }
+}
