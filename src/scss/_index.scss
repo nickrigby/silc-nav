@@ -4,6 +4,7 @@
 {
 	.silk-nav--link
 	{
+		position: relative;
 		display: $nav-link-display;
 		padding: $nav-link-padding;
 		color: $nav-link-color;
@@ -64,92 +65,59 @@
 		{
 			cursor: pointer;
 		}
-	}
-		
-	/*@media (min-width:$nav-expands)
-	{
-		overflow-x: inherit;
-		min-height: 0 !important; // Overrides inline style added by JS
-		border: $nav-items-expanded-border;
-		
-		> .silk-nav--items
+
+		@media (min-width:$nav-expands)
 		{
-			position: static;
+			overflow: inherit;
+			height: auto !important; // Overrides inline style added by JS
+			left: 0 !important; // Overrides inline style added by JS
+			border: $nav-items-expanded-border;
 			
 			.silk-nav--items
 			{
-				display: none;
-				width: $mav-items-expanded-width;
-				left: 0;
-				top: auto;
+				position: static;
 				
 				.silk-nav--items
 				{
-					left: 100%;
-					top: 0;
-					z-index: 50;
+					display: none;
+					width: $mav-items-expanded-width;
+					left: 0;
+					top: auto;
+					
+					.silk-nav--items
+					{
+						left: 100%;
+						top: 0;
+						z-index: $nav-items-expanded-z-index;
+					}
 				}
-			}
-			
-			.silk-nav--item
-			{
-				position: relative;
-				float: left;
-				border: 0;
 				
 				.silk-nav--item
 				{
-					float: none;
-				}
-				
-				&:hover
-				{	
-					> .silk-nav--items
+					position: relative;
+					float: left;
+					border: $nav-items-expanded-item-border;
+					
+					.silk-nav--item
 					{
-						display: block;
-					}
-				}
-				
-				&.is-parent
-				{					
-					> .silk-nav--link
-					{
-						&:after
-						{
-							position: relative;
-							display: inline-block;
-							content: "";
-							top: 4px;
-							left: 7px;
-							margin-right: 10px;
-						}
+						float: none;
 					}
 					
-					.next
-					{
-						display: none;
-					}					
-				}
-			}
-			
-			> .silk-nav--item
-			{
-				&.is-parent
-				{					
-					> *:first-child
-					{
-						&:after
+					&:hover
+					{	
+						> .silk-nav--items
 						{
-							top: 7px;
+							display: block;
 						}
 					}
 				}
 			}
-			
-			.back
+
+			.silk-nav--move-forward,
+			.silk-nav--move-back
 			{
 				display: none;
 			}
 		}
-	}*/
+	}
 }
