@@ -85,5 +85,4 @@ var SilkNav = (function () {
     };
     return SilkNav;
 }());
-exports.__esModule = true;
-exports["default"] = SilkNav;
+exports.SilkNav = SilkNav;

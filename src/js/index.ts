@@ -1,4 +1,4 @@
-export default class SilkNav
+export class SilkNav
 {
     element: HTMLElement;
 	position: number;
