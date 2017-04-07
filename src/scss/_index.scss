@@ -100,6 +100,19 @@
 		}
 	}
 
+	.silk-nav__link {
+		padding: $silk-nav__link--expanded-padding;
+		background: $silk-nav__link--expanded-background;
+		color: $silk-nav__link--expanded-color;
+		text-decoration: $silk-nav__link--expanded-text-decoration;
+		transition: $silk-nav__link--expanded-transition;
+
+		&:hover {
+			background: $silk-nav__link--expanded--hover-background;
+			color: $silk-nav__link--expanded--hover-color;
+		}
+	}
+
 	.silk-nav__move {
 		display: none;
 	}
