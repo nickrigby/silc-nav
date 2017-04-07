@@ -68,6 +68,12 @@
 	.silk-nav__items {
 		position: static;
 
+		&:after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+
 		.silk-nav__items {
 			left: 0;
 			top: auto;
