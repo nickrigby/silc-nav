@@ -16,8 +16,8 @@ $silk-nav__link-color: $link-color !default;
 $silk-nav__link-background: none !default;
 $silk-nav__link-text-decoration: none !default;
 $silk-nav__link-transition: none !default;
-$silk-nav__link--hover-background: none !default;
-$silk-nav__link--hover-color: none !default;
+$silk-nav__link--hover-background: $silk-nav__link-background !default;
+$silk-nav__link--hover-color: $silk-nav__link-color !default;
 
 $silk-nav__items--expanded-width: 200px !default;
 $silk-nav__items--expanded-border: 0 !default;
