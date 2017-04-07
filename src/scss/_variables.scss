@@ -1,22 +1,25 @@
-$nav-expands: 800px !default;
+$silk-nav--expands: 800px !default;
 
-$nav-link-display: block !default;
-$nav-link-color: $link-color !default;
-$nav-link-padding: 0 !default;
-$nav-link-background: none !default;
-$nav-link-background-hover: none !default;
-$nav-link-text-decoration: none !default;
+$silk-nav__items-margin: 0 !default;
+$silk-nav__items-border: 0 !default;
+$silk-nav__items-padding: 0 !default;
+$silk-nav__items-list-style: none !default;
+$silk-nav__items-transition: left .15s ease-in-out !default;
 
-$nav-items-margin: 0 !default;
-$nav-items-border: 0 !default;
-$nav-items-padding: 0 !default;
-$nav-items-transition: left .15s ease-in-out !default;
+$silk-nav__item-border: 0 !default;
+$silk-nav__item-margin: 0 !default;
+$silk-nav__item-padding: 0 !default;
 
-$mav-items-expanded-width: 200px !default;
-$nav-items-expanded-border: 0 !default;
-$nav-items-expanded-z-index: 50 !default;
-$nav-items-expanded-item-border: 0 !default;
+$silk-nav__link-display: block !default;
+$silk-nav__link-padding: 0 !default;
+$silk-nav__link-color: $link-color !default;
+$silk-nav__link-background: none !default;
+$silk-nav__link-text-decoration: none !default;
+$silk-nav__link-transition: none !default;
+$silk-nav__link--hover-background: none !default;
+$silk-nav__link--hover-color: none !default;
 
-$nav-item-border: 0 !default;
-$nav-item-padding: 0 !default;
-$nav-item-margin: 0 !default;
+$silk-nav__items--expanded-width: 200px !default;
+$silk-nav__items--expanded-border: 0 !default;
+$silk-nav__items--expanded-z-index: 50 !default;
+$silk-nav__items--expanded-item-border: 0 !default;

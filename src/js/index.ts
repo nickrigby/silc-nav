@@ -1,4 +1,4 @@
-export default class Nav
+export default class SilkNav
 {
     element: HTMLElement;
 	position: number;
@@ -10,41 +10,41 @@ export default class Nav
         this.element = element;
 
 		// Save shortcut to root items
-		this.rootItems = <HTMLElement>element.querySelector('.silk-nav--items');
+		this.rootItems = <HTMLElement>element.querySelector('.silk-nav__items');
 
 		// Set initial position
 		this.position = 0;
 
 		// For each nav items
-		[].forEach.call(this.rootItems.querySelectorAll('.silk-nav--items'), (items) => {
+		[].forEach.call(this.rootItems.querySelectorAll('.silk-nav__items'), (items) => {
 
 			// Get elements
 			let item = items.parentNode;
-			let link = item.querySelector('.silk-nav--link');
+			let link = item.querySelector('.silk-nav__link');
 
 			// Get link text
 			let linkText = link.innerText;
 
 			// Add parent class
-			item.classList.add('silk-nav--item-parent');
+			item.classList.add('silk-nav__item--parent');
 
 			// Create more element
 			let forward = document.createElement('span');
-			forward.classList.add('silk-nav--move-forward');
+			forward.classList.add('silk-nav__move', 'silk-nav__move--forward');
 			forward.innerHTML = 'More ' + linkText;
 
 			// Create back element
 			let back = document.createElement('li');
-			back.classList.add('silk-nav--move-back');
+			back.classList.add('silk-nav__item', 'silk-nav__move', 'silk-nav__move--back');
 			back.innerHTML = linkText;
 
 			// Add forward and back link
 			link.appendChild(forward);
-			item.querySelector('.silk-nav--items').prepend(back);
+			item.querySelector('.silk-nav__items').prepend(back);
 		});
 
 		// Attach click behaviour to forward links
-		[].forEach.call(element.querySelectorAll('.silk-nav--move-forward'), (moreLink) => {
+		[].forEach.call(element.querySelectorAll('.silk-nav__move--forward'), (moreLink) => {
 			moreLink.addEventListener('click', (event) => {
 				this.position++;
 				this.move(event);
@@ -52,7 +52,7 @@ export default class Nav
 		});
 
 		// Attach click behaviour to back links
-		[].forEach.call(element.querySelectorAll('.silk-nav--move-back'), (backLink) => {
+		[].forEach.call(element.querySelectorAll('.silk-nav__move--back'), (backLink) => {
 			backLink.addEventListener('click', (event) => {
 				this.position--;
 				this.move(event);
@@ -68,22 +68,22 @@ export default class Nav
 		var parentItem = event.target.parentNode.parentNode;
 
 		// Hide everything
-		[].forEach.call(this.rootItems.querySelectorAll('.silk-nav--items'), (el) => {
-			el.classList.add('is-hidden');
+		[].forEach.call(this.rootItems.querySelectorAll('.silk-nav__items'), (el) => {
+			el.classList.add('silk-nav__items--hidden');
 		});
 
 		// Show selected branch
-		[].forEach.call(parentItem.querySelectorAll('.silk-nav--items'), (el) => {
-			el.classList.remove('is-hidden');
+		[].forEach.call(parentItem.querySelectorAll('.silk-nav__items'), (el) => {
+			el.classList.remove('silk-nav__items--hidden');
 		});
 
 		// Show selected branch parent tree
-		[].forEach.call(this.getParents(event.target, '.silk-nav--items'), (el) => {
-			el.classList.remove('is-hidden');
+		[].forEach.call(this.getParents(event.target, '.silk-nav__items'), (el) => {
+			el.classList.remove('silk-nav__items--hidden');
 		});
 
 		// Get parent items
-		let parentItems = parentItem.querySelector('.silk-nav--items');
+		let parentItems = parentItem.querySelector('.silk-nav__items');
 		
 		// Add CSS for move
 		this.rootItems.style.left = (this.position * -100) + '%';
