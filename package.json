@@ -1,11 +1,19 @@
 {
   "name": "silk-nav",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Nav component for the silk framework",
   "main": "./dist/index.js",
-  "author": "Nick Rigby",
+  "author": {
+    "name": "Nick Rigby",
+    "email": "nick.rigby@gmail.com",
+    "url": "https://nickrigby.uk"
+  },
   "license": "ISC",
   "scripts": {
     "build": "tsc --outDir ./dist ./src/js/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickrigby/silk-nav"
   }
 }
