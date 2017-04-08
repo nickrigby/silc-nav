@@ -17,6 +17,7 @@
     "url": "https://github.com/nickrigby/silk-nav"
   },
   "devDependencies": {
+    "silk-core": "nickrigby/silk-core",
     "typescript": "^2.2.2"
   }
 }
