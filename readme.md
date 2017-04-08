@@ -1,8 +1,7 @@
-# Nav component for the silk framework
-The nav component is an ultra-leightweight navigation component for the silk framework. The nav is collapsed by default — to work on smaller screens — and can expand to a traditional horizontal navigation with drop-downs.
+# Silk Nav
+The nav component is an ultra-lightweight web component for the [silk framework](https://github.com/nickrigby/silk). The nav is collapsed by default — to work on smaller screens — with the ability to expand to a horizontal navigation with drop-downs.
 
 ## HTML
-
 ```html
 <nav class="silk-nav">
     <ul class="silk-nav__items">
@@ -73,5 +72,5 @@ The nav component is an ultra-leightweight navigation component for the silk fra
 </nav>
 ```
 
-## SASS variables
-The nav component is set up with no deliberate styling. However, a number of [SASS variables](src/scss/_variables.scss) can be overridden to easily add style.
+## Styling
+As with all Silk components, no deliberate style has been added. However, through a SASS fallback system, a number of [SASS variables](src/scss/_variables.scss) are available to easily apply design without having to write your own selectors.
