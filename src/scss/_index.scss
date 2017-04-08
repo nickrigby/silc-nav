@@ -29,6 +29,8 @@
 	border: $silk-nav__item-border;
 	margin: $silk-nav__item-margin;
 	padding: $silk-nav__item-padding;
+	background: $silk-nav__item-background;
+	color: $silk-nav__item-color;
 }
 
 .silk-nav__link {
@@ -84,6 +86,20 @@
 				left: 100%;
 				top: 0;
 				z-index: $silk-nav__items--expanded-z-index;
+			}
+
+			.silk-nav__link {
+				padding: $silk-nav__link--expanded--child-padding;
+				background: $silk-nav__link--expanded--child-background;
+				color: $silk-nav__link--expanded--child-color;
+				font-weight: $silk-nav__link--expanded--child-font-weight;
+				text-decoration: $silk-nav__link--expanded--child-text-decoration;
+				transition: $silk-nav__link--expanded--child-transition;
+
+				&:hover {
+					background: $silk-nav__link--expanded--child--hover-background;
+					color: $silk-nav__link--expanded--child--hover-color;
+				}
 			}
 		}
 	}
