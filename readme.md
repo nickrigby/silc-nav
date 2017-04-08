@@ -74,4 +74,4 @@ The nav component is an ultra-leightweight navigation component for the silk fra
 ```
 
 ## SASS variables
-The nav component is set up with no deliberate styling. However, a number of [SASS variables](src/scss/_variables.scss) can be overriden to easily add style.
+The nav component is set up with no deliberate styling. However, a number of [SASS variables](src/scss/_variables.scss) can be overridden to easily add style.
