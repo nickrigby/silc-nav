@@ -1,7 +1,7 @@
 {
-  "name": "silk-nav",
+  "name": "silc-nav",
   "version": "0.1.2",
-  "description": "Nav component for the silk framework",
+  "description": "Nav component for the silc framework",
   "main": "./dist/index.js",
   "author": {
     "name": "Nick Rigby",
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nickrigby/silk-nav"
+    "url": "https://github.com/nickrigby/silc-nav"
   },
   "devDependencies": {
-    "silk-core": "nickrigby/silk-core",
+    "silc-core": "nickrigby/silc-core",
     "typescript": "^2.2.2"
   }
 }

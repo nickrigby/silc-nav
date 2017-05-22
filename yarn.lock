@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-silk-core@nickrigby/silk-core:
-  version "0.1.2"
-  resolved "https://codeload.github.com/nickrigby/silk-core/tar.gz/c1e257534e2ecb9e181f3755da540c943ff62733"
+silc-core@nickrigby/silc-core:
+  version "0.2.0"
+  resolved "https://codeload.github.com/nickrigby/silc-core/tar.gz/a66d19ba66579b4e1a0342788aebd4cc74175687"
 
 typescript@^2.2.2:
   version "2.2.2"

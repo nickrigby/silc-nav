@@ -1,54 +1,54 @@
 /** options **/
-$silk-nav--expands: 800px !default;
+$silc-nav--expands: 800px !default;
 
-/** silk-nav__items **/
-$silk-nav__items-margin: 0 !default;
-$silk-nav__items-border: 0 !default;
-$silk-nav__items-padding: 0 !default;
-$silk-nav__items-list-style: none !default;
-$silk-nav__items-transition: left .15s ease-in-out !default;
+/** silc-nav__items **/
+$silc-nav__items-margin: 0 !default;
+$silc-nav__items-border: 0 !default;
+$silc-nav__items-padding: 0 !default;
+$silc-nav__items-list-style: none !default;
+$silc-nav__items-transition: left .15s ease-in-out !default;
 
-/** silk-nav__item **/
-$silk-nav__item-border: 0 !default;
-$silk-nav__item-margin: 0 !default;
-$silk-nav__item-padding: 0 !default;
-$silk-nav__item-background: none !default;
-$silk-nav__item-color: inherit !default;
+/** silc-nav__item **/
+$silc-nav__item-border: 0 !default;
+$silc-nav__item-margin: 0 !default;
+$silc-nav__item-padding: 0 !default;
+$silc-nav__item-background: none !default;
+$silc-nav__item-color: inherit !default;
 
-/** silk-nav__link **/
-$silk-nav__link-display: block !default;
-$silk-nav__link-padding: 0 !default;
-$silk-nav__link-color: inherit !default;
-$silk-nav__link-background: none !default;
-$silk-nav__link-font-weight: 400 !default;
-$silk-nav__link-text-decoration: none !default;
-$silk-nav__link-transition: none !default;
-$silk-nav__link--hover-background: $silk-nav__link-background !default;
-$silk-nav__link--hover-color: $silk-nav__link-color !default;
+/** silc-nav__link **/
+$silc-nav__link-display: block !default;
+$silc-nav__link-padding: 0 !default;
+$silc-nav__link-color: inherit !default;
+$silc-nav__link-background: none !default;
+$silc-nav__link-font-weight: 400 !default;
+$silc-nav__link-text-decoration: none !default;
+$silc-nav__link-transition: none !default;
+$silc-nav__link--hover-background: $silc-nav__link-background !default;
+$silc-nav__link--hover-color: $silc-nav__link-color !default;
 
-/** silk-nav__items (expanded) **/
-$silk-nav__items--expanded-width: 200px !default;
-$silk-nav__items--expanded-border: 0 !default;
-$silk-nav__items--expanded-z-index: 50 !default;
-$silk-nav__items--expanded-item-border: 0 !default;
-$silk-nav__items--expanded-background: none !default;
+/** silc-nav__items (expanded) **/
+$silc-nav__items--expanded-width: 200px !default;
+$silc-nav__items--expanded-border: 0 !default;
+$silc-nav__items--expanded-z-index: 50 !default;
+$silc-nav__items--expanded-item-border: 0 !default;
+$silc-nav__items--expanded-background: none !default;
 
-/** silk-nav__link (expanded) **/
-$silk-nav__link--expanded-padding: $silk-nav__link-padding !default;
-$silk-nav__link--expanded-background: $silk-nav__link-background !default;
-$silk-nav__link--expanded-color: $silk-nav__link-color !default;
-$silk-nav__link--expanded-font-weight: $silk-nav__link-font-weight !default;
-$silk-nav__link--expanded-text-decoration: $silk-nav__link-text-decoration !default;
-$silk-nav__link--expanded-transition: $silk-nav__link-transition !default;
-$silk-nav__link--expanded--hover-color: $silk-nav__link--hover-color !default;
-$silk-nav__link--expanded--hover-background: $silk-nav__link--hover-background !default;
+/** silc-nav__link (expanded) **/
+$silc-nav__link--expanded-padding: $silc-nav__link-padding !default;
+$silc-nav__link--expanded-background: $silc-nav__link-background !default;
+$silc-nav__link--expanded-color: $silc-nav__link-color !default;
+$silc-nav__link--expanded-font-weight: $silc-nav__link-font-weight !default;
+$silc-nav__link--expanded-text-decoration: $silc-nav__link-text-decoration !default;
+$silc-nav__link--expanded-transition: $silc-nav__link-transition !default;
+$silc-nav__link--expanded--hover-color: $silc-nav__link--hover-color !default;
+$silc-nav__link--expanded--hover-background: $silc-nav__link--hover-background !default;
 
-/** silk-nav__link (child expanded) **/
-$silk-nav__link--expanded--child-padding: $silk-nav__link--expanded-padding !default;
-$silk-nav__link--expanded--child-background: $silk-nav__link--expanded-background !default;
-$silk-nav__link--expanded--child-color: $silk-nav__link--expanded-color !default;
-$silk-nav__link--expanded--child-font-weight: $silk-nav__link--expanded-font-weight !default;
-$silk-nav__link--expanded--child-text-decoration: $silk-nav__link--expanded-text-decoration !default;
-$silk-nav__link--expanded--child-transition: $silk-nav__link--expanded-transition !default;
-$silk-nav__link--expanded--child--hover-background: $silk-nav__link--expanded-background !default;
-$silk-nav__link--expanded--child--hover-color: $silk-nav__link--expanded--child-color !default;
+/** silc-nav__link (child expanded) **/
+$silc-nav__link--expanded--child-padding: $silc-nav__link--expanded-padding !default;
+$silc-nav__link--expanded--child-background: $silc-nav__link--expanded-background !default;
+$silc-nav__link--expanded--child-color: $silc-nav__link--expanded-color !default;
+$silc-nav__link--expanded--child-font-weight: $silc-nav__link--expanded-font-weight !default;
+$silc-nav__link--expanded--child-text-decoration: $silc-nav__link--expanded-text-decoration !default;
+$silc-nav__link--expanded--child-transition: $silc-nav__link--expanded-transition !default;
+$silc-nav__link--expanded--child--hover-background: $silc-nav__link--expanded-background !default;
+$silc-nav__link--expanded--child--hover-color: $silc-nav__link--expanded--child-color !default;

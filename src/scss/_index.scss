@@ -1,19 +1,19 @@
 @import "variables";
 
-.silk-nav {
+.silc-nav {
 	overflow: hidden;
 }
 
-.silk-nav__items {
+.silc-nav__items {
 	position: relative;
 	left: 0;
-	padding: $silk-nav__items-padding;
-	margin: $silk-nav__items-margin;
-	border: $silk-nav__items-border;
-	list-style: $silk-nav__items-list-style;
-	transition: $silk-nav__items-transition;
+	padding: $silc-nav__items-padding;
+	margin: $silc-nav__items-margin;
+	border: $silc-nav__items-border;
+	list-style: $silc-nav__items-list-style;
+	transition: $silc-nav__items-transition;
 
-	.silk-nav__items {
+	.silc-nav__items {
 		position: absolute;
 		top: 0;
 		left: 100%;
@@ -25,30 +25,30 @@
 	}
 }
 
-.silk-nav__item {
-	border: $silk-nav__item-border;
-	margin: $silk-nav__item-margin;
-	padding: $silk-nav__item-padding;
-	background: $silk-nav__item-background;
-	color: $silk-nav__item-color;
+.silc-nav__item {
+	border: $silc-nav__item-border;
+	margin: $silc-nav__item-margin;
+	padding: $silc-nav__item-padding;
+	background: $silc-nav__item-background;
+	color: $silc-nav__item-color;
 }
 
-.silk-nav__link {
+.silc-nav__link {
 	position: relative;
-	display: $silk-nav__link-display;
-	padding: $silk-nav__link-padding;
-	background: $silk-nav__link-background;
-	color: $silk-nav__link-color;
-	text-decoration: $silk-nav__link-text-decoration;
-	transition: $silk-nav__link-transition;
+	display: $silc-nav__link-display;
+	padding: $silc-nav__link-padding;
+	background: $silc-nav__link-background;
+	color: $silc-nav__link-color;
+	text-decoration: $silc-nav__link-text-decoration;
+	transition: $silc-nav__link-transition;
 
 	&:hover {
-		background: $silk-nav__link--hover-background;
-		color: $silk-nav__link--hover-color;
+		background: $silc-nav__link--hover-background;
+		color: $silc-nav__link--hover-color;
 	}
 }
 
-.silk-nav__move {
+.silc-nav__move {
 	cursor: pointer;
 
 	&--forward {
@@ -59,15 +59,15 @@
 	}
 }
 
-@media (min-width:$silk-nav--expands) {
+@media (min-width:$silc-nav--expands) {
 
-	.silk-nav {
+	.silc-nav {
 		overflow: initial;
 		height: auto !important; // Override JS
 		left: 0 !important; // Override JS
 	}
 	
-	.silk-nav__items {
+	.silc-nav__items {
 		position: static;
 
 		&:after {
@@ -76,66 +76,66 @@
 			clear: both;
 		}
 
-		.silk-nav__items {
+		.silc-nav__items {
 			left: 0;
 			top: auto;
 			display: none;
-			width: $silk-nav__items--expanded-width;
+			width: $silc-nav__items--expanded-width;
 
-			.silk-nav__items {
+			.silc-nav__items {
 				left: 100%;
 				top: 0;
-				z-index: $silk-nav__items--expanded-z-index;
+				z-index: $silc-nav__items--expanded-z-index;
 			}
 
-			.silk-nav__link {
-				padding: $silk-nav__link--expanded--child-padding;
-				background: $silk-nav__link--expanded--child-background;
-				color: $silk-nav__link--expanded--child-color;
-				font-weight: $silk-nav__link--expanded--child-font-weight;
-				text-decoration: $silk-nav__link--expanded--child-text-decoration;
-				transition: $silk-nav__link--expanded--child-transition;
+			.silc-nav__link {
+				padding: $silc-nav__link--expanded--child-padding;
+				background: $silc-nav__link--expanded--child-background;
+				color: $silc-nav__link--expanded--child-color;
+				font-weight: $silc-nav__link--expanded--child-font-weight;
+				text-decoration: $silc-nav__link--expanded--child-text-decoration;
+				transition: $silc-nav__link--expanded--child-transition;
 
 				&:hover {
-					background: $silk-nav__link--expanded--child--hover-background;
-					color: $silk-nav__link--expanded--child--hover-color;
+					background: $silc-nav__link--expanded--child--hover-background;
+					color: $silc-nav__link--expanded--child--hover-color;
 				}
 			}
 		}
 	}
 
-	.silk-nav__item {
+	.silc-nav__item {
 		position: relative;
 		float: left;
 					
-		.silk-nav__item
+		.silc-nav__item
 		{
 			float: none;
 		}
 					
 		&:hover
 		{	
-			> .silk-nav__items
+			> .silc-nav__items
 			{
 				display: block;
 			}
 		}
 	}
 
-	.silk-nav__link {
-		padding: $silk-nav__link--expanded-padding;
-		background: $silk-nav__link--expanded-background;
-		color: $silk-nav__link--expanded-color;
-		text-decoration: $silk-nav__link--expanded-text-decoration;
-		transition: $silk-nav__link--expanded-transition;
+	.silc-nav__link {
+		padding: $silc-nav__link--expanded-padding;
+		background: $silc-nav__link--expanded-background;
+		color: $silc-nav__link--expanded-color;
+		text-decoration: $silc-nav__link--expanded-text-decoration;
+		transition: $silc-nav__link--expanded-transition;
 
 		&:hover {
-			background: $silk-nav__link--expanded--hover-background;
-			color: $silk-nav__link--expanded--hover-color;
+			background: $silc-nav__link--expanded--hover-background;
+			color: $silc-nav__link--expanded--hover-color;
 		}
 	}
 
-	.silk-nav__move {
+	.silc-nav__move {
 		display: none;
 	}
 }
