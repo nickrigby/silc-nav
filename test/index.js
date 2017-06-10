@@ -50,7 +50,7 @@ describe('User visits nav demo page', function () {
                 .fire('#nav-0 .silc-nav__move--back', 'click');
         });
 
-        it('should add exactly X hidden elements when clicking move back element', function () {
+        it('should add exactly 3 hidden elements when clicking move back element', function () {
             browser.assert.elements('#nav-0 .silc-nav__items--hidden', { exactly: 3 });
         });
 
