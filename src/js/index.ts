@@ -43,6 +43,8 @@ export class SilcNav {
 			// Get elements
 			let item = items.parentNode;
 			let link = item.querySelector('.' + this.linkClass);
+			let childItems = item.querySelector('.' + this.itemsClass);
+			let childItemsFirstItem = childItems.querySelector('.' + this.itemClass);
 
 			// Get link text
 			let linkText = link.innerText;
@@ -62,7 +64,7 @@ export class SilcNav {
 
 			// Add forward and back link
 			link.appendChild(forward);
-			item.querySelector('.' + this.itemsClass).prepend(back);
+			childItems.insertBefore(back, childItemsFirstItem);
 		});
 	}
 
