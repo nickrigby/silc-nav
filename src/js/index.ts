@@ -17,6 +17,9 @@ export class SilcNav {
 		// Save shortcut to element
 		this.element = element;
 
+		// Add BEM classes
+		this.addBemClasses();
+
 		// Save shortcut to root items
 		this.rootItems = <HTMLElement>element.querySelector('.' + this.itemsClass);
 
@@ -29,6 +32,24 @@ export class SilcNav {
 		// Attach click listener
 		this.element.addEventListener('click', event => {
 			this.moveListener(event);
+		});
+	}
+
+	/**
+	 * Add BEM classes
+	 */
+	protected addBemClasses() {
+
+		[].forEach.call(this.element.querySelectorAll('ul'), el => {
+			el.classList.add(this.itemsClass);
+		});
+
+		[].forEach.call(this.element.querySelectorAll('li'), el => {
+			el.classList.add(this.itemClass);
+		});
+
+		[].forEach.call(this.element.querySelectorAll('a'), el => {
+			el.classList.add(this.linkClass);
 		});
 	}
 
