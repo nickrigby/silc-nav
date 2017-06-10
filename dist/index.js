@@ -34,6 +34,8 @@ var SilcNav = (function () {
             // Get elements
             var item = items.parentNode;
             var link = item.querySelector('.' + _this.linkClass);
+            var childItems = item.querySelector('.' + _this.itemsClass);
+            var childItemsFirstItem = childItems.querySelector('.' + _this.itemClass);
             // Get link text
             var linkText = link.innerText;
             // Add parent class
@@ -48,7 +50,7 @@ var SilcNav = (function () {
             back.innerHTML = linkText;
             // Add forward and back link
             link.appendChild(forward);
-            item.querySelector('.' + _this.itemsClass).prepend(back);
+            childItems.insertBefore(back, childItemsFirstItem);
         });
     };
     /**
