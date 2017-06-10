@@ -1,4 +1,4 @@
-# silc Nav
+# silc nav [![Build Status](https://travis-ci.org/nickrigby/silc-nav.svg?branch=master)](https://travis-ci.org/nickrigby/silc-nav)
 The nav component is an ultra-lightweight web component for the [silc framework](https://github.com/nickrigby/silc). The nav is collapsed by default — to work on smaller screens — with the ability to expand to a horizontal navigation with drop-downs.
 
 ## HTML
