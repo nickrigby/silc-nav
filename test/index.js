@@ -1,7 +1,7 @@
 const server = require('node-http-server');
 const Browser = require('zombie');
 
-describe('User visits nav demo page', function () {
+describe('silc nav module', function () {
 
     const browser = new Browser();
 
@@ -37,7 +37,7 @@ describe('User visits nav demo page', function () {
                 .fire('#nav-0 .silc-nav__move--forward', 'click');
         });
 
-        it('should add exactly 3 hidden elements when clicking move forward element', function () {
+        it('should add exactly 3 hidden elements when clicked', function () {
             browser.assert.elements('#nav-0 .silc-nav__items--hidden', { exactly: 3 });
         });
 
@@ -50,7 +50,7 @@ describe('User visits nav demo page', function () {
                 .fire('#nav-0 .silc-nav__move--back', 'click');
         });
 
-        it('should add exactly 3 hidden elements when clicking move back element', function () {
+        it('should add exactly 3 hidden elements when clicked', function () {
             browser.assert.elements('#nav-0 .silc-nav__items--hidden', { exactly: 3 });
         });
 
