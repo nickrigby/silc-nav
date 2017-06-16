@@ -42,6 +42,7 @@
 	color: $silc-nav__link-color;
 	text-decoration: $silc-nav__link-text-decoration;
 	transition: $silc-nav__link-transition;
+	font-weight: $silc-nav__link-font-weight;
 
 	&:hover {
 		background: $silc-nav__link--hover-background;
@@ -60,83 +61,85 @@
 	}
 }
 
-@media (min-width:$silc-nav--expands) {
+@if strip-unit($silc-nav--options--expands) > 0 {
+	@media (min-width:$silc-nav--options--expands) {
 
-	.silc-nav {
-		overflow: initial;
-		height: auto !important; // Override JS
-		left: 0 !important; // Override JS
-	}
-	
-	.silc-nav__items {
-		position: static;
-
-		&:after {
-			display: block;
-			content: "";
-			clear: both;
+		.silc-nav {
+			overflow: initial;
+			height: auto !important; // Override JS
+			left: 0 !important; // Override JS
 		}
-
+		
 		.silc-nav__items {
-			left: 0;
-			top: auto;
-			display: none;
-			width: $silc-nav__items--expanded-width;
+			position: static;
 
-			.silc-nav__items {
-				left: 100%;
-				top: 0;
-				z-index: $silc-nav__items--expanded-z-index;
+			&:after {
+				display: block;
+				content: "";
+				clear: both;
 			}
 
-			.silc-nav__link {
-				padding: $silc-nav__link--expanded--child-padding;
-				background: $silc-nav__link--expanded--child-background;
-				color: $silc-nav__link--expanded--child-color;
-				font-weight: $silc-nav__link--expanded--child-font-weight;
-				text-decoration: $silc-nav__link--expanded--child-text-decoration;
-				transition: $silc-nav__link--expanded--child-transition;
+			.silc-nav__items {
+				left: 0;
+				top: auto;
+				display: none;
+				width: $silc-nav__items--expanded-width;
 
-				&:hover {
-					background: $silc-nav__link--expanded--child--hover-background;
-					color: $silc-nav__link--expanded--child--hover-color;
+				.silc-nav__items {
+					left: 100%;
+					top: 0;
+					z-index: $silc-nav__items--expanded-z-index;
+				}
+
+				.silc-nav__link {
+					padding: $silc-nav__link--expanded--child-padding;
+					background: $silc-nav__link--expanded--child-background;
+					color: $silc-nav__link--expanded--child-color;
+					font-weight: $silc-nav__link--expanded--child-font-weight;
+					text-decoration: $silc-nav__link--expanded--child-text-decoration;
+					transition: $silc-nav__link--expanded--child-transition;
+
+					&:hover {
+						background: $silc-nav__link--expanded--child--hover-background;
+						color: $silc-nav__link--expanded--child--hover-color;
+					}
 				}
 			}
 		}
-	}
 
-	.silc-nav__item {
-		position: relative;
-		float: left;
-					
-		.silc-nav__item
-		{
-			float: none;
-		}
-					
-		&:hover
-		{	
-			> .silc-nav__items
+		.silc-nav__item {
+			position: relative;
+			float: left;
+						
+			.silc-nav__item
 			{
-				display: block;
+				float: none;
+			}
+						
+			&:hover
+			{	
+				> .silc-nav__items
+				{
+					display: block;
+				}
 			}
 		}
-	}
 
-	.silc-nav__link {
-		padding: $silc-nav__link--expanded-padding;
-		background: $silc-nav__link--expanded-background;
-		color: $silc-nav__link--expanded-color;
-		text-decoration: $silc-nav__link--expanded-text-decoration;
-		transition: $silc-nav__link--expanded-transition;
+		.silc-nav__link {
+			padding: $silc-nav__link--expanded-padding;
+			background: $silc-nav__link--expanded-background;
+			color: $silc-nav__link--expanded-color;
+			text-decoration: $silc-nav__link--expanded-text-decoration;
+			transition: $silc-nav__link--expanded-transition;
 
-		&:hover {
-			background: $silc-nav__link--expanded--hover-background;
-			color: $silc-nav__link--expanded--hover-color;
+			&:hover {
+				background: $silc-nav__link--expanded--hover-background;
+				color: $silc-nav__link--expanded--hover-color;
+			}
 		}
-	}
 
-	.silc-nav__move {
-		display: none;
+		.silc-nav__move {
+			display: none;
+		}
 	}
 }
