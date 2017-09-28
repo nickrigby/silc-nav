@@ -80,11 +80,12 @@ var default_1 = (function () {
             event.preventDefault();
             if (target.classList.contains(this.moveClass + '--forward')) {
                 this.position++;
+                this.move(target, 'forward');
             }
             else {
                 this.position--;
+                this.move(target, 'back');
             }
-            this.move(target);
         }
         event.stopPropagation();
     };
@@ -92,7 +93,7 @@ var default_1 = (function () {
      * Move through navigation when collapsed
      * @param target
      */
-    default_1.prototype.move = function (target) {
+    default_1.prototype.move = function (target, direction) {
         var _this = this;
         // Get parent item
         var parentItem = target.parentNode.parentNode;
@@ -109,11 +110,15 @@ var default_1 = (function () {
             el.classList.remove(_this.itemsClass + '--hidden');
         });
         // Get parent items
-        var parentItems = parentItem.querySelector('.' + this.itemsClass);
+        var parentItems = direction === 'forward'
+            ? parentItem.querySelector('.' + this.itemsClass)
+            : parentItem.parentNode;
         // Add CSS for move
         this.rootItems.style.left = (this.position * -100) + '%';
         // Add CSS for height
-        this.rootItems.style.height = parentItems.offsetHeight + 'px';
+        this.rootItems.style.height = this.position > 0
+            ? parentItems.offsetHeight + 'px'
+            : 'auto';
     };
     /**
      * Get parent elements of passed in selector

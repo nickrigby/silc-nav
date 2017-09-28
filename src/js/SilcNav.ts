@@ -103,11 +103,12 @@ export default class {
 
 			if (target.classList.contains(this.moveClass + '--forward')) {
 				this.position++;
+				this.move(target, 'forward');
 			} else {
 				this.position--;
+				this.move(target, 'back');
 			}
 
-			this.move(target);
 		}
 
 		event.stopPropagation();
@@ -117,34 +118,38 @@ export default class {
 	 * Move through navigation when collapsed
 	 * @param target
 	 */
-	protected move(target: Element) {
+	protected move(target: Element, direction: String) {
 
 		// Get parent item
 		var parentItem = <Element>target.parentNode.parentNode;
 
 		// Hide everything
-		[].forEach.call(this.rootItems.querySelectorAll('.' + this.itemsClass), (el) => {
+		[].forEach.call(this.rootItems.querySelectorAll('.' + this.itemsClass), el => {
 			el.classList.add(this.itemsClass + '--hidden');
 		});
 
 		// Show selected branch
-		[].forEach.call(parentItem.querySelectorAll('.' + this.itemsClass), (el) => {
+		[].forEach.call(parentItem.querySelectorAll('.' + this.itemsClass), el => {
 			el.classList.remove(this.itemsClass + '--hidden');
 		});
 
 		// Show selected branch parent tree
-		[].forEach.call(this.getParents(target, '.' + this.itemsClass), (el) => {
+		[].forEach.call(this.getParents(target, '.' + this.itemsClass), el => {
 			el.classList.remove(this.itemsClass + '--hidden');
 		});
 
 		// Get parent items
-		let parentItems = <HTMLElement>parentItem.querySelector('.' + this.itemsClass);
+		let parentItems = direction === 'forward'
+			? <HTMLElement>parentItem.querySelector('.' + this.itemsClass)
+			: <HTMLElement>parentItem.parentNode
 
 		// Add CSS for move
 		this.rootItems.style.left = (this.position * -100) + '%';
 
 		// Add CSS for height
-		this.rootItems.style.height = parentItems.offsetHeight + 'px';
+		this.rootItems.style.height = this.position > 0
+			? parentItems.offsetHeight + 'px'
+			: 'auto'
 	}
 
 	/**
