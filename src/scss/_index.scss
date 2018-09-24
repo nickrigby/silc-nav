@@ -2,7 +2,12 @@
 @import "variables";
 
 .silc-nav {
-	overflow: hidden;
+  overflow: hidden;
+  opacity: 0;
+
+  &--ready {
+    opacity: 1;
+  }
 }
 
 .silc-nav__items {

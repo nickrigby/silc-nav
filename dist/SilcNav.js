@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-var default_1 = (function () {
+var default_1 = /** @class */ (function () {
     /**
      * Contructor
      * @param element
@@ -30,45 +30,59 @@ var default_1 = (function () {
      * Add BEM classes
      */
     default_1.prototype.addBemClasses = function () {
-        var _this = this;
-        [].forEach.call(this.element.querySelectorAll('ul'), function (el) {
-            el.classList.add(_this.itemsClass);
-        });
-        [].forEach.call(this.element.querySelectorAll('li'), function (el) {
-            el.classList.add(_this.itemClass);
-        });
-        [].forEach.call(this.element.querySelectorAll('a'), function (el) {
-            el.classList.add(_this.linkClass);
-        });
+        var uls = this.element.querySelectorAll('ul');
+        if (uls.length > 0) {
+            for (var i = 0; i < uls.length; i++) {
+                var el = uls[i];
+                el.classList.add(this.itemsClass);
+            }
+        }
+        var lis = this.element.querySelectorAll('li');
+        if (lis.length > 0) {
+            for (var i = 0; i < lis.length; i++) {
+                var el = lis[i];
+                el.classList.add(this.itemClass);
+            }
+        }
+        var links = this.element.querySelectorAll('a');
+        if (links.length > 0) {
+            for (var i = 0; i < links.length; i++) {
+                var el = links[i];
+                el.classList.add(this.linkClass);
+            }
+        }
+        this.element.classList.add('silc-nav--ready');
     };
     /**
      * Create controls for moving forward and backward
      */
     default_1.prototype.createMoveControls = function () {
-        var _this = this;
         // For each nav items
-        [].forEach.call(this.rootItems.querySelectorAll('.' + this.itemsClass), function (items) {
-            // Get elements
-            var item = items.parentNode;
-            var link = item.querySelector('.' + _this.linkClass);
-            var childItems = item.querySelector('.' + _this.itemsClass);
-            var childItemsFirstItem = childItems.querySelector('.' + _this.itemClass);
-            // Get link text
-            var linkText = link.innerText;
-            // Add parent class
-            item.classList.add(_this.itemClass + '--parent');
-            // Create more element
-            var forward = document.createElement('span');
-            forward.classList.add(_this.moveClass, _this.moveClass + '--forward');
-            forward.innerHTML = 'More ' + linkText;
-            // Create back element
-            var back = document.createElement('li');
-            back.classList.add(_this.itemClass, _this.moveClass, _this.moveClass + '--back');
-            back.innerHTML = linkText;
-            // Add forward and back link
-            link.appendChild(forward);
-            childItems.insertBefore(back, childItemsFirstItem);
-        });
+        var itemsEls = this.rootItems.querySelectorAll('.' + this.itemsClass);
+        if (itemsEls.length > 0) {
+            for (var i = 0; i < itemsEls.length; i++) {
+                // Get elements
+                var item = itemsEls[i].parentNode;
+                var link = item.querySelector('.' + this.linkClass);
+                var childItems = item.querySelector('.' + this.itemsClass);
+                var childItemsFirstItem = childItems.querySelector('.' + this.itemClass);
+                // Get link text
+                var linkText = link.innerText;
+                // Add parent class
+                item.classList.add(this.itemClass + '--parent');
+                // Create more element
+                var forward = document.createElement('span');
+                forward.classList.add(this.moveClass, this.moveClass + '--forward');
+                forward.innerHTML = 'More ' + linkText;
+                // Create back element
+                var back = document.createElement('li');
+                back.classList.add(this.itemClass, this.moveClass, this.moveClass + '--back');
+                back.innerHTML = linkText;
+                // Add forward and back link
+                link.appendChild(forward);
+                childItems.insertBefore(back, childItemsFirstItem);
+            }
+        }
     };
     /**
      * Listen for clicks on move elements
@@ -80,11 +94,12 @@ var default_1 = (function () {
             event.preventDefault();
             if (target.classList.contains(this.moveClass + '--forward')) {
                 this.position++;
+                this.move(target, 'forward');
             }
             else {
                 this.position--;
+                this.move(target, 'back');
             }
-            this.move(target);
         }
         event.stopPropagation();
     };
@@ -92,28 +107,37 @@ var default_1 = (function () {
      * Move through navigation when collapsed
      * @param target
      */
-    default_1.prototype.move = function (target) {
-        var _this = this;
+    default_1.prototype.move = function (target, direction) {
         // Get parent item
         var parentItem = target.parentNode.parentNode;
         // Hide everything
-        [].forEach.call(this.rootItems.querySelectorAll('.' + this.itemsClass), function (el) {
-            el.classList.add(_this.itemsClass + '--hidden');
-        });
+        var els1 = this.rootItems.querySelectorAll('.' + this.itemsClass);
+        for (var i = 0; i < els1.length; i++) {
+            var el = els1[i];
+            el.classList.add(this.itemsClass + '--hidden');
+        }
         // Show selected branch
-        [].forEach.call(parentItem.querySelectorAll('.' + this.itemsClass), function (el) {
-            el.classList.remove(_this.itemsClass + '--hidden');
-        });
+        var els2 = parentItem.querySelectorAll('.' + this.itemsClass);
+        for (var i = 0; i < els2.length; i++) {
+            var el = els2[i];
+            el.classList.remove(this.itemsClass + '--hidden');
+        }
         // Show selected branch parent tree
-        [].forEach.call(this.getParents(target, '.' + this.itemsClass), function (el) {
-            el.classList.remove(_this.itemsClass + '--hidden');
-        });
+        var els3 = this.getParents(target, '.' + this.itemsClass);
+        for (var i = 0; i < els3.length; i++) {
+            var el = els3[i];
+            el.classList.remove(this.itemsClass + '--hidden');
+        }
         // Get parent items
-        var parentItems = parentItem.querySelector('.' + this.itemsClass);
+        var parentItems = direction === 'forward'
+            ? parentItem.querySelector('.' + this.itemsClass)
+            : parentItem.parentNode;
         // Add CSS for move
         this.rootItems.style.left = (this.position * -100) + '%';
         // Add CSS for height
-        this.rootItems.style.height = parentItems.offsetHeight + 'px';
+        this.rootItems.style.height = this.position > 0
+            ? parentItems.offsetHeight + 'px'
+            : 'auto';
     };
     /**
      * Get parent elements of passed in selector
