@@ -67,7 +67,7 @@ var default_1 = /** @class */ (function () {
                 var childItems = item.querySelector('.' + this.itemsClass);
                 var childItemsFirstItem = childItems.querySelector('.' + this.itemClass);
                 // Get link text
-                var linkText = link.innerText;
+                var linkText = link.textContent || link.innerHTML;
                 // Add parent class
                 item.classList.add(this.itemClass + '--parent');
                 // Create more element

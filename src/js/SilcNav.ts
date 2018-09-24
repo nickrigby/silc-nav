@@ -84,7 +84,7 @@ export default class {
         let childItemsFirstItem = childItems.querySelector('.' + this.itemClass) as HTMLElement;
 
         // Get link text
-        let linkText = link.innerText;
+        let linkText = link.textContent || link.innerHTML;
 
         // Add parent class
         item.classList.add(this.itemClass + '--parent');
