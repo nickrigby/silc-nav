@@ -1,175 +1,204 @@
 export default class {
-	readonly moveClass = 'silc-nav__move';
-	readonly itemsClass = 'silc-nav__items';
-	readonly itemClass = 'silc-nav__item';
-	readonly linkClass = 'silc-nav__link';
+  readonly moveClass = 'silc-nav__move';
+  readonly itemsClass = 'silc-nav__items';
+  readonly itemClass = 'silc-nav__item';
+  readonly linkClass = 'silc-nav__link';
 
-	protected element: HTMLElement;
-	protected position: number;
-	protected rootItems: HTMLElement;
+  protected element: HTMLElement;
+  protected position: number;
+  protected rootItems: HTMLElement;
 
 	/**
 	 * Contructor
 	 * @param element 
 	 */
-	public constructor(element: HTMLElement) {
+  public constructor(element: HTMLElement) {
 
-		// Save shortcut to element
-		this.element = element;
+    // Save shortcut to element
+    this.element = element;
 
-		// Add BEM classes
-		this.addBemClasses();
+    // Add BEM classes
+    this.addBemClasses();
 
-		// Save shortcut to root items
-		this.rootItems = <HTMLElement>element.querySelector('.' + this.itemsClass);
+    // Save shortcut to root items
+    this.rootItems = element.querySelector('.' + this.itemsClass) as HTMLElement;
 
-		// Set initial position
-		this.position = 0;
+    // Set initial position
+    this.position = 0;
 
-		// Create move controle
-		this.createMoveControls();
+    // Create move controle
+    this.createMoveControls();
 
-		// Attach click listener
-		this.element.addEventListener('click', event => {
-			this.moveListener(event);
-		});
-	}
+    // Attach click listener
+    this.element.addEventListener('click', event => {
+      this.moveListener(event);
+    });
+  }
 
 	/**
 	 * Add BEM classes
 	 */
-	protected addBemClasses() {
+  protected addBemClasses() {
 
-		[].forEach.call(this.element.querySelectorAll('ul'), el => {
-			el.classList.add(this.itemsClass);
-		});
+    let uls = this.element.querySelectorAll('ul') as NodeList;
+    if (uls.length > 0) {
+      for (let i = 0; i < uls.length; i++) {
+        let el = uls[i] as HTMLElement;
+        el.classList.add(this.itemsClass);
+      }
+    }
 
-		[].forEach.call(this.element.querySelectorAll('li'), el => {
-			el.classList.add(this.itemClass);
-		});
+    let lis = this.element.querySelectorAll('li') as NodeList;
+    if (lis.length > 0) {
+      for (let i = 0; i < lis.length; i++) {
+        let el = lis[i] as HTMLElement;
+        el.classList.add(this.itemClass);
+      }
+    }
 
-		[].forEach.call(this.element.querySelectorAll('a'), el => {
-			el.classList.add(this.linkClass);
-		});
-	}
+    let links = this.element.querySelectorAll('a') as NodeList;
+    if (links.length > 0) {
+      for (let i = 0; i < links.length; i++) {
+        let el = links[i] as HTMLElement;
+        el.classList.add(this.linkClass);
+      }
+    }
+
+    this.element.classList.add('silc-nav--ready');
+  }
 
 	/**
 	 * Create controls for moving forward and backward
 	 */
-	protected createMoveControls() {
+  protected createMoveControls() {
 
-		// For each nav items
-		[].forEach.call(this.rootItems.querySelectorAll('.' + this.itemsClass), items => {
+    // For each nav items
+    let itemsEls = this.rootItems.querySelectorAll('.' + this.itemsClass) as NodeList;
+    if (itemsEls.length > 0) {
+      for (let i = 0; i < itemsEls.length; i++) {
+        let items = itemsEls[i];
 
-			// Get elements
-			let item = items.parentNode;
-			let link = item.querySelector('.' + this.linkClass);
-			let childItems = item.querySelector('.' + this.itemsClass);
-			let childItemsFirstItem = childItems.querySelector('.' + this.itemClass);
+        // Get elements
+        let item = (itemsEls[i] as HTMLElement).parentNode as HTMLElement;
+        let link = item.querySelector('.' + this.linkClass) as HTMLElement;
+        let childItems = item.querySelector('.' + this.itemsClass) as HTMLElement;
+        let childItemsFirstItem = childItems.querySelector('.' + this.itemClass) as HTMLElement;
 
-			// Get link text
-			let linkText = link.innerText;
+        // Get link text
+        let linkText = link.innerText;
 
-			// Add parent class
-			item.classList.add(this.itemClass + '--parent');
+        // Add parent class
+        item.classList.add(this.itemClass + '--parent');
 
-			// Create more element
-			let forward = document.createElement('span');
-			forward.classList.add(this.moveClass, this.moveClass + '--forward');
-			forward.innerHTML = 'More ' + linkText;
+        // Create more element
+        let forward = document.createElement('span');
+        forward.classList.add(this.moveClass, this.moveClass + '--forward');
+        forward.innerHTML = 'More ' + linkText;
 
-			// Create back element
-			let back = document.createElement('li');
-			back.classList.add(this.itemClass, this.moveClass, this.moveClass + '--back');
-			back.innerHTML = linkText;
+        // Create back element
+        let back = document.createElement('li');
+        back.classList.add(this.itemClass, this.moveClass, this.moveClass + '--back');
+        back.innerHTML = linkText;
 
-			// Add forward and back link
-			link.appendChild(forward);
-			childItems.insertBefore(back, childItemsFirstItem);
-		});
-	}
+        // Add forward and back link
+        link.appendChild(forward);
+        childItems.insertBefore(back, childItemsFirstItem);
+      }
+    }
+  }
 
 	/**
 	 * Listen for clicks on move elements
 	 * @param event 
 	 */
-	protected moveListener(event: Event) {
+  protected moveListener(event: Event) {
 
-		let target = <Element>event.target;
+    let target = event.target as HTMLElement;
 
-		if (target.classList.contains(this.moveClass + '--forward') || target.classList.contains(this.moveClass + '--back')) {
+    if (target.classList.contains(this.moveClass + '--forward') || target.classList.contains(this.moveClass + '--back')) {
 
-			event.preventDefault();
+      event.preventDefault();
 
-			if (target.classList.contains(this.moveClass + '--forward')) {
-				this.position++;
-			} else {
-				this.position--;
-			}
+      if (target.classList.contains(this.moveClass + '--forward')) {
+        this.position++;
+        this.move(target, 'forward');
+      } else {
+        this.position--;
+        this.move(target, 'back');
+      }
 
-			this.move(target);
-		}
+    }
 
-		event.stopPropagation();
-	}
+    event.stopPropagation();
+  }
 
 	/**
 	 * Move through navigation when collapsed
 	 * @param target
 	 */
-	protected move(target: Element) {
+  protected move(target: HTMLElement, direction: String) {
 
-		// Get parent item
-		var parentItem = <Element>target.parentNode.parentNode;
+    // Get parent item
+    var parentItem = target.parentNode.parentNode as HTMLElement;
 
-		// Hide everything
-		[].forEach.call(this.rootItems.querySelectorAll('.' + this.itemsClass), (el) => {
-			el.classList.add(this.itemsClass + '--hidden');
-		});
+    // Hide everything
+    let els1 = this.rootItems.querySelectorAll('.' + this.itemsClass) as NodeList;
+    for (let i = 0; i < els1.length; i++) {
+      let el = els1[i] as HTMLElement;
+      el.classList.add(this.itemsClass + '--hidden');
+    }
 
-		// Show selected branch
-		[].forEach.call(parentItem.querySelectorAll('.' + this.itemsClass), (el) => {
-			el.classList.remove(this.itemsClass + '--hidden');
-		});
+    // Show selected branch
+    let els2 = parentItem.querySelectorAll('.' + this.itemsClass) as NodeList;
+    for (let i = 0; i < els2.length; i++) {
+      let el = els2[i] as HTMLElement;
+      el.classList.remove(this.itemsClass + '--hidden');
+    }
 
-		// Show selected branch parent tree
-		[].forEach.call(this.getParents(target, '.' + this.itemsClass), (el) => {
-			el.classList.remove(this.itemsClass + '--hidden');
-		});
+    // Show selected branch parent tree
+    let els3 = this.getParents(target, '.' + this.itemsClass);
+    for (let i = 0; i < els3.length; i++) {
+      let el = els3[i] as HTMLElement;
+      el.classList.remove(this.itemsClass + '--hidden');
+    }
 
-		// Get parent items
-		let parentItems = <HTMLElement>parentItem.querySelector('.' + this.itemsClass);
+    // Get parent items
+    let parentItems = direction === 'forward'
+      ? parentItem.querySelector('.' + this.itemsClass) as HTMLElement
+      : parentItem.parentNode as HTMLElement
 
-		// Add CSS for move
-		this.rootItems.style.left = (this.position * -100) + '%';
+    // Add CSS for move
+    this.rootItems.style.left = (this.position * -100) + '%';
 
-		// Add CSS for height
-		this.rootItems.style.height = parentItems.offsetHeight + 'px';
-	}
+    // Add CSS for height
+    this.rootItems.style.height = this.position > 0
+      ? parentItems.offsetHeight + 'px'
+      : 'auto'
+  }
 
 	/**
 	 * Get parent elements of passed in selector
 	 * @param elem 
 	 * @param selector 
 	 */
-	private getParents(elem: any, selector: String) {
-		// Element.matches() polyfill for IE and Safari
-		if (!Element.prototype.matches) {
-			Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-		}
+  private getParents(elem: any, selector: String) {
+    // Element.matches() polyfill for IE and Safari
+    if (!Element.prototype.matches) {
+      Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+    }
 
-		// Setup parents array
-		var parents = [];
+    // Setup parents array
+    var parents = [];
 
-		// Get matching parent elements
-		for (; elem && elem !== document; elem = elem.parentNode) {
+    // Get matching parent elements
+    for (; elem && elem !== document; elem = elem.parentNode) {
 
-			// Add matching parents to array
-			if (selector && elem.matches(selector)) {
-				parents.push(elem);
-			}
-		}
+      // Add matching parents to array
+      if (selector && elem.matches(selector)) {
+        parents.push(elem);
+      }
+    }
 
-		return parents;
-	}
+    return parents;
+  }
 }

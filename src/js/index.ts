@@ -1,9 +1,12 @@
 import SilcNav from "./SilcNav";
 
 function silcNavInit() {
-    [].forEach.call(document.querySelectorAll('.silc-nav'), el => {
-        new SilcNav(el);
-    });
+  let navs = document.querySelectorAll('.silc-nav') as NodeList;
+  if (navs.length > 0) {
+    for (let i = 0; i < navs.length; i++) {
+      new SilcNav(navs[i] as HTMLElement);
+    }
+  }
 }
 
 export { SilcNav, silcNavInit }
