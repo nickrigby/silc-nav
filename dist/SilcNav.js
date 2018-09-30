@@ -145,16 +145,12 @@ var default_1 = /** @class */ (function () {
      * @param selector
      */
     default_1.prototype.getParents = function (elem, selector) {
-        // Element.matches() polyfill for IE and Safari
-        if (!Element.prototype.matches) {
-            Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-        }
         // Setup parents array
         var parents = [];
         // Get matching parent elements
         for (; elem && elem !== document; elem = elem.parentNode) {
             // Add matching parents to array
-            if (selector && elem.matches(selector)) {
+            if (elem.querySelector(selector)) {
                 parents.push(elem);
             }
         }

@@ -138,7 +138,7 @@ export default class {
   protected move(target: HTMLElement, direction: String) {
 
     // Get parent item
-    var parentItem = target.parentNode.parentNode as HTMLElement;
+    let parentItem = target.parentNode.parentNode as HTMLElement;
 
     // Hide everything
     let els1 = this.rootItems.querySelectorAll('.' + this.itemsClass) as NodeList;
@@ -181,19 +181,15 @@ export default class {
 	 * @param selector 
 	 */
   private getParents(elem: any, selector: String) {
-    // Element.matches() polyfill for IE and Safari
-    if (!Element.prototype.matches) {
-      Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-    }
 
     // Setup parents array
-    var parents = [];
+    let parents = [];
 
     // Get matching parent elements
     for (; elem && elem !== document; elem = elem.parentNode) {
 
       // Add matching parents to array
-      if (selector && elem.matches(selector)) {
+      if (elem.querySelector(selector)) {
         parents.push(elem);
       }
     }
