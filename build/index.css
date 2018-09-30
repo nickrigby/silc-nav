@@ -101,7 +101,7 @@ html {
     float: left; }
     .silc-nav__item .silc-nav__item {
       float: none; }
-    .silc-nav__item:hover > .silc-nav__items {
+    .silc-nav__item:hover > .silc-nav__items, .silc-nav__item:focus-within > .silc-nav__items {
       display: block; }
   .silc-nav__link {
     padding: 0;

@@ -1,3 +1,7 @@
+1.0.2 - 20180930
+================
+- Adds keyboard focus to drop down menu
+
 1.0.1 - 20180924
 ================
 - Fix issue with innerText
