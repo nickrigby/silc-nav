@@ -11,140 +11,137 @@
 }
 
 .silc-nav__items {
-	position: relative;
-	left: 0;
-	padding: $silc-nav__items-padding;
-	margin: $silc-nav__items-margin;
-	border: $silc-nav__items-border;
-	list-style: $silc-nav__items-list-style;
-	transition: $silc-nav__items-transition;
+  position: relative;
+  left: 0;
+  padding: $silc-nav__items-padding;
+  margin: $silc-nav__items-margin;
+  border: $silc-nav__items-border;
+  list-style: $silc-nav__items-list-style;
+  transition: $silc-nav__items-transition;
 
-	.silc-nav__items {
-		position: absolute;
-		top: 0;
-		left: 100%;
-		width: 100%;
-	}
+  .silc-nav__items {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+  }
 
-	&--hidden {
-		display: none;
-	}
+  &--hidden {
+    display: none;
+  }
 }
 
 .silc-nav__item {
-	border: $silc-nav__item-border;
-	margin: $silc-nav__item-margin;
-	padding: $silc-nav__item-padding;
-	background: $silc-nav__item-background;
-	color: $silc-nav__item-color;
+  border: $silc-nav__item-border;
+  margin: $silc-nav__item-margin;
+  padding: $silc-nav__item-padding;
+  background: $silc-nav__item-background;
+  color: $silc-nav__item-color;
 }
 
 .silc-nav__link {
-	position: relative;
-	display: $silc-nav__link-display;
-	padding: $silc-nav__link-padding;
-	background: $silc-nav__link-background;
-	color: $silc-nav__link-color;
-	text-decoration: $silc-nav__link-text-decoration;
-	transition: $silc-nav__link-transition;
-	font-weight: $silc-nav__link-font-weight;
+  position: relative;
+  display: $silc-nav__link-display;
+  padding: $silc-nav__link-padding;
+  background: $silc-nav__link-background;
+  color: $silc-nav__link-color;
+  text-decoration: $silc-nav__link-text-decoration;
+  transition: $silc-nav__link-transition;
+  font-weight: $silc-nav__link-font-weight;
 
-	&:hover {
-		background: $silc-nav__link--hover-background;
-		color: $silc-nav__link--hover-color;
-	}
+  &:hover {
+    background: $silc-nav__link--hover-background;
+    color: $silc-nav__link--hover-color;
+  }
 }
 
 .silc-nav__move {
-	cursor: pointer;
+  cursor: pointer;
 
-	&--forward {
-		position: absolute;
-		right: 0;
-		top: 0;
-		height: 100%;
-	}
+  &--forward {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
 }
 
 @if strip-unit($silc-nav--options--expands) > 0 {
-	@media (min-width:$silc-nav--options--expands) {
+  @media (min-width: $silc-nav--options--expands) {
+    .silc-nav {
+      overflow: initial;
+      height: auto !important; // Override JS
+      left: 0 !important; // Override JS
+    }
 
-		.silc-nav {
-			overflow: initial;
-			height: auto !important; // Override JS
-			left: 0 !important; // Override JS
-		}
-		
-		.silc-nav__items {
-			position: static;
+    .silc-nav__items {
+      position: static;
 
-			&:after {
-				display: block;
-				content: "";
-				clear: both;
-			}
+      &:after {
+        display: block;
+        content: "";
+        clear: both;
+      }
 
-			.silc-nav__items {
-				left: 0;
-				top: auto;
-				display: none;
-				width: $silc-nav__items--expanded-width;
+      .silc-nav__items {
+        left: 0;
+        top: auto;
+        display: none;
+        width: $silc-nav__items--expanded-width;
 
-				.silc-nav__items {
-					left: 100%;
-					top: 0;
-					z-index: $silc-nav__items--expanded-z-index;
-				}
+        .silc-nav__items {
+          left: 100%;
+          top: 0;
+          z-index: $silc-nav__items--expanded-z-index;
+        }
 
-				.silc-nav__link {
-					padding: $silc-nav__link--expanded--child-padding;
-					background: $silc-nav__link--expanded--child-background;
-					color: $silc-nav__link--expanded--child-color;
-					font-weight: $silc-nav__link--expanded--child-font-weight;
-					text-decoration: $silc-nav__link--expanded--child-text-decoration;
-					transition: $silc-nav__link--expanded--child-transition;
+        .silc-nav__link {
+          padding: $silc-nav__link--expanded--child-padding;
+          background: $silc-nav__link--expanded--child-background;
+          color: $silc-nav__link--expanded--child-color;
+          font-weight: $silc-nav__link--expanded--child-font-weight;
+          text-decoration: $silc-nav__link--expanded--child-text-decoration;
+          transition: $silc-nav__link--expanded--child-transition;
 
-					&:hover {
-						background: $silc-nav__link--expanded--child--hover-background;
-						color: $silc-nav__link--expanded--child--hover-color;
-					}
-				}
-			}
-		}
+          &:hover {
+            background: $silc-nav__link--expanded--child--hover-background;
+            color: $silc-nav__link--expanded--child--hover-color;
+          }
+        }
+      }
+    }
 
-		.silc-nav__item {
-			position: relative;
-			float: left;
-						
-			.silc-nav__item
-			{
-				float: none;
-			}
-						
-			&:hover
-			{	
-				> .silc-nav__items
-				{
-					display: block;
-				}
-			}
-		}
+    .silc-nav__item {
+      position: relative;
+      float: left;
 
-		.silc-nav__link {
-			padding: $silc-nav__link--expanded-padding;
-			background: $silc-nav__link--expanded-background;
-			color: $silc-nav__link--expanded-color;
-			text-decoration: $silc-nav__link--expanded-text-decoration;
-			transition: $silc-nav__link--expanded-transition;
+      .silc-nav__item {
+        float: none;
+      }
 
-			&:hover {
-				background: $silc-nav__link--expanded--hover-background;
-				color: $silc-nav__link--expanded--hover-color;
-			}
-		}
+      &:hover,
+      &:focus-within {
+        > .silc-nav__items {
+          display: block;
+        }
+      }
+    }
 
-		.silc-nav__move {
-			display: none;
-		}
-	}
+    .silc-nav__link {
+      padding: $silc-nav__link--expanded-padding;
+      background: $silc-nav__link--expanded-background;
+      color: $silc-nav__link--expanded-color;
+      text-decoration: $silc-nav__link--expanded-text-decoration;
+      transition: $silc-nav__link--expanded-transition;
+
+      &:hover {
+        background: $silc-nav__link--expanded--hover-background;
+        color: $silc-nav__link--expanded--hover-color;
+      }
+    }
+
+    .silc-nav__move {
+      display: none;
+    }
+  }
 }
