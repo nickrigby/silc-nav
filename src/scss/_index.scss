@@ -38,6 +38,7 @@
   border: $silc-nav__item-border;
   margin: $silc-nav__item-margin;
   padding: $silc-nav__item-padding;
+  list-style: $silc-nav__item-list-style;
   background: $silc-nav__item-background;
   color: $silc-nav__item-color;
 }
@@ -72,7 +73,7 @@
 @if strip-unit($silc-nav--options--expands) > 0 {
   @media (min-width: $silc-nav--options--expands) {
     .silc-nav {
-      overflow: initial;
+      overflow: visible;
       height: auto !important; // Override JS
       left: 0 !important; // Override JS
     }
