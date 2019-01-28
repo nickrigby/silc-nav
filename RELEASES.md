@@ -1,3 +1,7 @@
+1.0.6 - 20190128
+================
+- Adds list-style-image hack for IE11
+
 1.0.5 - 20190128
 ================
 - IE11 fix for subnav not appearing in expanded mode
