@@ -1,3 +1,8 @@
+1.0.4 - 20190128
+================
+- Fix webpack-dev-server security vulnerability: https://nvd.nist.gov/vuln/detail/CVE-2018-14732
+- Fix issue with nav being invisible when JS is disabled
+
 1.0.3 - 20180930
 ================
 - Minor code cleanup
