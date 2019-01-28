@@ -1,6 +1,6 @@
 {
   "name": "silc-nav",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Nav component for the silc framework",
   "main": "./dist/index.js",
   "author": {
@@ -34,7 +34,7 @@
     "url-loader": "^1.1.1",
     "webpack": "^4.0.0",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8",
+    "webpack-dev-server": "^3.1.11",
     "zombie": "^6.1.3"
   }
 }
