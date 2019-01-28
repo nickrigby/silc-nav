@@ -17,10 +17,11 @@ html {
 /** silc-nav__link (expanded) **/
 /** silc-nav__link (child expanded) **/
 .silc-nav {
-  overflow: hidden;
-  opacity: 0; }
-  .silc-nav--ready {
-    opacity: 1; }
+  overflow: hidden; }
+  .js .silc-nav {
+    opacity: 0; }
+    .js .silc-nav--ready {
+      opacity: 1; }
 
 .silc-nav__items {
   position: relative;
