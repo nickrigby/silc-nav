@@ -1,6 +1,6 @@
 {
   "name": "silc-nav",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Nav component for the silc framework",
   "main": "./dist/index.js",
   "author": {
@@ -10,7 +10,7 @@
   },
   "license": "ISC",
   "scripts": {
-    "build": "tsc --outDir ./dist ./src/js/index.ts",
+    "build": "webpack --mode production",
     "serve": "webpack-dev-server --mode development --open",
     "test": "webpack --mode production && mocha --exit"
   },
