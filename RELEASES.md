@@ -1,3 +1,8 @@
+1.0.5 - 20190128
+================
+- IE11 fix for subnav not appearing in expanded mode
+- IE11 fix for next/back buttons not working in collapsed mode
+
 1.0.4 - 20190128
 ================
 - Fix webpack-dev-server security vulnerability: https://nvd.nist.gov/vuln/detail/CVE-2018-14732
