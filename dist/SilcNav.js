@@ -72,11 +72,14 @@ var default_1 = /** @class */ (function () {
                 item.classList.add(this.itemClass + '--parent');
                 // Create more element
                 var forward = document.createElement('span');
-                forward.classList.add(this.moveClass, this.moveClass + '--forward');
+                forward.classList.add(this.moveClass);
+                forward.classList.add(this.moveClass + '--forward');
                 forward.innerHTML = 'More ' + linkText;
                 // Create back element
                 var back = document.createElement('li');
-                back.classList.add(this.itemClass, this.moveClass, this.moveClass + '--back');
+                back.classList.add(this.itemClass);
+                back.classList.add(this.moveClass);
+                back.classList.add(this.moveClass + '--back');
                 back.innerHTML = linkText;
                 // Add forward and back link
                 link.appendChild(forward);
