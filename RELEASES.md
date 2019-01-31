@@ -1,3 +1,7 @@
+1.0.8 - 20190131
+================
+- Actually adds the IE/Edge code that should have been in 1.0.7
+
 1.0.7 - 20190131
 ================
 - Improved IE/Edge hack to prevent insecure content issues
