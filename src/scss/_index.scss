@@ -39,7 +39,6 @@
   margin: $silc-nav__item-margin;
   padding: $silc-nav__item-padding;
   list-style: $silc-nav__item-list-style;
-  list-style-image: url(data:0); // Hack for IE
   background: $silc-nav__item-background;
   color: $silc-nav__item-color;
 }
@@ -148,5 +147,24 @@
     .silc-nav__move {
       display: none;
     }
+  }
+}
+
+/**** IE and Edge hacks :( *****/
+@mixin microsoft-bullet-fix {
+  list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
+}
+
+// IE 10/11
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .silc-nav__item {
+    @include microsoft-bullet-fix();
+  }
+}
+
+// Edge
+@supports (-ms-ime-align: auto) {
+  .silc-nav__item {
+    @include microsoft-bullet-fix();
   }
 }
