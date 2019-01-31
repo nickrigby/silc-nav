@@ -1,3 +1,7 @@
+1.0.7 - 20190131
+================
+- Improved IE/Edge hack to prevent insecure content issues
+
 1.0.6 - 20190128
 ================
 - Adds list-style-image hack for IE11
